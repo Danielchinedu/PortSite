@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="projectStyle.css">
+	<style>
+        span{
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+   
+	
+            
+			<ul>
+                <li>
+					<div class="time">
+						<a href="index.html"><h2>
+							Go <br><span>Back</span>
+						</h2></a>
+                        
+					</div>
+					<div class="details">
+						<h3>
+							Get List of users::
+						</h3>
+
+                        <ul>
+                            <li>
+
+                            </li>
+                        </ul>
+
+                        <script>
+                            fetch('https://jsonplaceholder.typicode.com/users')
+                            .then(res => {
+                              return res.json();
+                            })
+                            .then(data => {
+                                data.forEach(user => {
+                                    const markup = `<li>${user.name}</li>`;
+
+                                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup)
+                                });
+                            })
+                            .catch(error => console.log(error));
+                        </script>
+						
+						<a href="#">View Details</a>
+					</div>
+					<div style="clear: both;"></div>
+				</li>
+
+
+
+
+				
+			</ul>
+	
+</body>
+</html>
